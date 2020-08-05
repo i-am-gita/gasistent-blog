@@ -1,0 +1,17 @@
+<div class="wrapper">
+    <div class="login-container">
+        <div class="login-form-container">
+            <h3>Ovde se prijavi ljubi te brat</h3>
+            <mat-form-field>
+                <input matInput [(ngModel)]="username" placeholder="Korisničko ime">
+            </mat-form-field>
+            <mat-form-field>
+                <input [(ngModel)]="password" matInput placeholder="Lozinka" [type]="hide? 'password' : 'text'">
+                <button  mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide? 'Sakrij lozinku' : 'Otkrij lozinku'}}</mat-icon>
+                </button>
+            </mat-form-field>
+            <button mat-raised-button color="primary" (click)="submit_form()">Prijavi se</button>
+        </div>
+    </div>
+</div>
