@@ -12,7 +12,9 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 		"gita.gasistent.blog.backend.controller",
 		"gita.gasistent.blog.backend.service",
 		"gita.gasistent.blog.backend.repository",
-		"gita.gasistent.blog.backend.security"})
+		"gita.gasistent.blog.backend.security",
+		"gita.gasistent.blog.backend.model",
+		"gita.gasistent.blog.backend.payload"})
 public class GasistentBackendApplication {
 
 	public static void main(String[] args) {
