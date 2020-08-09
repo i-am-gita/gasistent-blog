@@ -8,7 +8,7 @@ import java.util.Set;
 
 public interface BlogService {
 
-    BlogDto getBlogById(String id);
+    BlogDto getBlogById(@RequestParam("id") String id);
 
     BlogDto saveBlog(@RequestParam("blog") BlogDto blog);
 

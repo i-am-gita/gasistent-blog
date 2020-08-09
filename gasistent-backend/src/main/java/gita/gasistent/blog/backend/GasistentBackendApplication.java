@@ -7,9 +7,12 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
-@Configuration
-@EnableAutoConfiguration
-@ComponentScan({"gita.gasistent.blog.backend.mapper"})
+@SpringBootApplication
+@ComponentScan({"gita.gasistent.blog.backend.mapper",
+		"gita.gasistent.blog.backend.controller",
+		"gita.gasistent.blog.backend.service",
+		"gita.gasistent.blog.backend.repository",
+		"gita.gasistent.blog.backend.security"})
 public class GasistentBackendApplication {
 
 	public static void main(String[] args) {

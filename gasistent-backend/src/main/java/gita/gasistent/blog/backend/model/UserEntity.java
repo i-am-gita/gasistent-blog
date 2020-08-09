@@ -24,6 +24,8 @@ public class UserEntity {
 
     private Set<BlogEntity> blogs = new HashSet<>();
 
+    private Set<RoleEntity> roles = new HashSet<>();
+
     public UserEntity(){}
 
     public UserEntity(final Builder builder){
@@ -32,6 +34,7 @@ public class UserEntity {
         skillTitle = builder.skillTitle;
         profileImage = builder.profileImage;
         blogs = builder.blogs;
+        roles = builder.roles;
     }
 
     public String getId() {
@@ -82,6 +85,10 @@ public class UserEntity {
         this.blogs = blogs;
     }
 
+    public Set<RoleEntity> getRoles() { return roles; }
+
+    public void setRoles(Set<RoleEntity> roles) { this.roles = roles; }
+
     public static class Builder{
         public String id;
         public String username;
@@ -89,6 +96,7 @@ public class UserEntity {
         public String skillTitle;
         public String profileImage;
         public Set<BlogEntity> blogs;
+        public Set<RoleEntity> roles;
 
         public static Builder builder(){ return new Builder();}
 
@@ -119,6 +127,11 @@ public class UserEntity {
 
         public Builder withBlogs(final Set<BlogEntity> blogs){
             this.blogs = blogs;
+            return this;
+        }
+
+        public Builder withRoles(final Set<RoleEntity> roles){
+            this.roles = roles;
             return this;
         }
 

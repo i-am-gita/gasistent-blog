@@ -10,8 +10,6 @@ import java.util.Set;
 
 public interface BlogRepository extends MongoRepository<BlogEntity, String> {
 
-    Optional<BlogEntity> findById(String id);
-
     List<BlogEntity> findByTitleContaining(String title);
 
     Set<BlogEntity> findByAuthor(UserEntity author);

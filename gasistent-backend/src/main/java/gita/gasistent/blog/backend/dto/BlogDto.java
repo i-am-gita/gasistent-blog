@@ -1,6 +1,7 @@
 package gita.gasistent.blog.backend.dto;
 
 import gita.gasistent.blog.backend.model.TagEntity;
+import gita.gasistent.blog.backend.model.UserEntity;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -13,16 +14,18 @@ public class BlogDto {
     public String imageUrl;
     public Set<TagEntity> tags = new HashSet<>();
     public String createdAt;
+    public AuthorDto author;
 
     public BlogDto(){}
 
-    public BlogDto(String id, String title, String content, String imageUrl, Set<TagEntity> tags, String createdAt) {
+    public BlogDto(String id, String title, String content, String imageUrl, Set<TagEntity> tags, String createdAt, AuthorDto author) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.imageUrl = imageUrl;
         this.tags = tags;
         this.createdAt = createdAt;
+        this.author = author;
     }
 
     public String getId() {
@@ -71,5 +74,13 @@ public class BlogDto {
 
     public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public AuthorDto getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(AuthorDto author) {
+        this.author = author;
     }
 }

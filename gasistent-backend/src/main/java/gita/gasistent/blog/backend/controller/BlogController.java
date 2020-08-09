@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Set;
 
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/api")
+@RequestMapping(value = "")
 public class BlogController {
 
     @Autowired
@@ -33,7 +35,7 @@ public class BlogController {
         }
     }
 
-    @GetMapping("/blogs/{input}")
+    @GetMapping("/blogs/search/{input}")
     public ResponseEntity<List<BlogDto>> getSearchResults(@PathVariable("input") String input){
         try{
             List<BlogDto> blogResults = blogService.searchByTitle(input);
@@ -63,7 +65,7 @@ public class BlogController {
         }
     }
 
-    @GetMapping("/blog/{id}")
+    @GetMapping(path = "/blog/{id}", produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<BlogDto> getSingleBlog(@PathVariable("id") String id){
         try{
             BlogDto blogResult = blogService.getBlogById(id);
@@ -78,7 +80,7 @@ public class BlogController {
         }
     }
 
-    @PostMapping("blog")
+    @PostMapping(path = "/blog", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<BlogDto> saveBlog(@RequestBody BlogDto blog){
         try {
             BlogDto blogForSaving = blogService.saveBlog(blog);

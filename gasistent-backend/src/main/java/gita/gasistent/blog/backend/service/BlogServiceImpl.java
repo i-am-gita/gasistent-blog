@@ -1,18 +1,15 @@
 package gita.gasistent.blog.backend.service;
 
-import com.mongodb.lang.Nullable;
 import gita.gasistent.blog.backend.dto.BlogDto;
 import gita.gasistent.blog.backend.mapper.BlogMapper;
 import gita.gasistent.blog.backend.model.BlogEntity;
 import gita.gasistent.blog.backend.model.UserEntity;
-import gita.gasistent.blog.backend.repository.AuthorRepository;
 import gita.gasistent.blog.backend.repository.BlogRepository;
+import gita.gasistent.blog.backend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -24,7 +21,7 @@ public class BlogServiceImpl implements BlogService{
     private BlogRepository blogRepo;
 
     @Autowired
-    private AuthorRepository authorRepo;
+    private UserRepository authorRepo;
 
     @Autowired
     private BlogMapper blogMapper;
