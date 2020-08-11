@@ -1,0 +1,35 @@
+@import 'https://fonts.googleapis.com/css?family=Montserrat|Open+Sans';
+
+a {
+  font-family: 'Open Sans', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 1.2rem;
+  color: #d89cf6;
+  text-decoration: none;
+}
+
+a:hover, a:active{
+  color: #f0e3ff;
+}
+
+.navigation-items{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+mat-toolbar{
+  border-radius: 3px;
+}
+
+@media(max-width: 959px){
+  mat-toolbar{
+    border-radius: 0px;
+  }
+}
+
+.brand{
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase
+}

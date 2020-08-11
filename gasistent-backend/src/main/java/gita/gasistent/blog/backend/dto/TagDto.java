@@ -2,11 +2,10 @@ package gita.gasistent.blog.backend.dto;
 
 public class TagDto {
 
-    private String id;
-    private String name;
+    public String id;
+    public String name;
 
     public TagDto(){
-
     }
 
     public  TagDto(String id, String name){

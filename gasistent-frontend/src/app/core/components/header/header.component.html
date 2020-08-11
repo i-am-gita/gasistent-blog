@@ -1,0 +1,28 @@
+<mat-toolbar color="primary" fxLayoutGap="8px">
+  <div fxHide.gt-xs>
+    <button mat-icon-button (click)="onToggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <div fxFlex fxLayout fxLayoutAlign="center">
+    <a class = "brand" routerLink="">Gasistenti</a>
+  </div>
+  <div>
+    <div fxFlex fxLayout fxLayoutAlign = "end" fxHide.xs>
+      <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+        <li>
+          <a href routerLink="/blog">Blog</a>
+        </li>
+        <li>
+          <a href routerLink="/podkast">Podkast</a>
+        </li>
+        <li>
+          <a href routerLink="/okce">OKCe</a>
+        </li>
+        <li class="active">
+          <a href routerLink="/kontakt">Kontakt</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</mat-toolbar>

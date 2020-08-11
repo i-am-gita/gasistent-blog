@@ -1,0 +1,15 @@
+<div class="wrapper">
+  <div class="nav-container">
+    <div class="nav-container-heading">
+      <h2>Blog Panel</h2>
+    </div>
+    <div class="nav-container-links">
+      <button mat-raised-button routerLink='/admin/novi-blog'><mat-icon>Napravi Blog</mat-icon></button>
+      <button mat-raised-button routerLink='/admin/blogovi'><mat-icon>Moji Blogovi</mat-icon></button>
+      <button mat-raised-button id="signout-button" (click)="open_dialog('Pališ a?')">Ćao Zdravo</button>
+    </div>
+  </div>
+  <div class="main-container">
+    <router-outlet></router-outlet>
+  </div>
+</div>

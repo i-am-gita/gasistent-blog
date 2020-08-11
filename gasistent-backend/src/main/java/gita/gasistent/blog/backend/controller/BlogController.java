@@ -5,6 +5,7 @@ import gita.gasistent.blog.backend.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,7 +21,7 @@ public class BlogController {
     @Autowired
     BlogService blogService;
 
-    @GetMapping("/blogs")
+    @GetMapping(path = "/blogs", produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<List<BlogDto>> getAll(){
         try{
             List<BlogDto> blogResults = blogService.findAllBlogs();
@@ -81,6 +82,7 @@ public class BlogController {
     }
 
     @PostMapping(path = "/blog", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<BlogDto> saveBlog(@RequestBody BlogDto blog){
         try {
             BlogDto blogForSaving = blogService.saveBlog(blog);
@@ -90,7 +92,8 @@ public class BlogController {
         }
     }
 
-    @PutMapping("/blog/{id}")
+    @PutMapping("/blog{id}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<BlogDto> updateBlog(@PathVariable("id") String id, @RequestBody BlogDto blog){
 
         BlogDto updatedBlog = blogService.updateBlogWithPut(id,blog);
@@ -102,6 +105,7 @@ public class BlogController {
     }
 
     @DeleteMapping("/blog/{id}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<HttpStatus> deleteBlog(@PathVariable("id") String id){
         try{
             blogService.deleteBlogById(id);

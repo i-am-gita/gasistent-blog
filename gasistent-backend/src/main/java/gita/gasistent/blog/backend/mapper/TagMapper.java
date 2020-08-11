@@ -1,8 +1,6 @@
 package gita.gasistent.blog.backend.mapper;
 
-import gita.gasistent.blog.backend.dto.BlogDto;
 import gita.gasistent.blog.backend.dto.TagDto;
-import gita.gasistent.blog.backend.model.BlogEntity;
 import gita.gasistent.blog.backend.model.TagEntity;
 import org.mapstruct.Mapper;
 
