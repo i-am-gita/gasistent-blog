@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
+
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -9,15 +10,12 @@ import { SharedModule } from './shared/shared.module';
 import { MaterialModule } from './shared/material.module';
 
 import { AppRoutingModule } from './app-routing.module';
-import { LoginComponent } from './features/admin/login/login.component';
-import { PanelBlogComponent } from './features/admin/panel-blog/panel-blog.component';
+import {AdminModule} from './features/admin/admin.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    PanelBlogComponent,
   ],
   imports: [
     CoreModule,
@@ -25,6 +23,7 @@ import { PanelBlogComponent } from './features/admin/panel-blog/panel-blog.compo
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
+    AdminModule,
 
     AppRoutingModule,
   ],

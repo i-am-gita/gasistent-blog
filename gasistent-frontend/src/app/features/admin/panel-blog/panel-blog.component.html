@@ -1,14 +1,10 @@
-<div class="wrapper">
-  <div class="nav-container">
-    <div class="nav-container-heading">
-      <h2>Blog Panel</h2>
-    </div>
-    <div class="nav-container-links">
-      <button mat-raised-button routerLink='/admin/novi-blog'><mat-icon>Napravi Blog</mat-icon></button>
-      <button mat-raised-button routerLink='/admin/blogovi'><mat-icon>Moji Blogovi</mat-icon></button>
-      <button mat-raised-button id="signout-button" (click)="open_dialog('Pališ a?')">Ćao Zdravo</button>
-    </div>
-  </div>
+<div class ="wrapper">
+  <button #panelButton mat-icon-button [style.margin-left]="buttonPossition" [style.margin-top]="buttonMarginTop" (click)="onToggleToolbar()">
+    <mat-icon #panelButtonIcon [style.transform]="iconRotate" class="panel-icon">double_arrow</mat-icon>
+  </button>
+  <mat-sidenav [(opened)]="opened" role="navigation">
+    <app-toolbar-blog></app-toolbar-blog>
+  </mat-sidenav>
   <div class="main-container">
     <router-outlet></router-outlet>
   </div>

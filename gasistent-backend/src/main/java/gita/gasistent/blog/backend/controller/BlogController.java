@@ -92,7 +92,7 @@ public class BlogController {
         }
     }
 
-    @PutMapping("/blog{id}")
+    @PutMapping("/blog/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<BlogDto> updateBlog(@PathVariable("id") String id, @RequestBody BlogDto blog){
 

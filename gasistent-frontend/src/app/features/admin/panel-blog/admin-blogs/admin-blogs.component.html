@@ -1,0 +1,18 @@
+<div class="all-blogs-container">
+  <div class="blog-container" *ngFor="let blog of blogs">
+    <div class="blog-container-image">
+      <img [src]="blog.imageUrl" alt="Naslovna-fotografija">
+    </div>
+    <div class="blog-container-details">
+      <h3>{{blog.title}}</h3>
+      {{blog.content.slice(0,120)}}...
+    </div>
+    <div class="blog-container-actions">
+      <button mat-raised-button id="edit-action" [routerLink]="['/admin/izmeni-blog/', blog.id]" >Promeni</button>
+      <button mat-raised-button id="delete-action" (click)="open_dialog('Ćeš sigurno da brišeš?', blog.id)">Briši</button>
+    </div>
+
+
+  </div>
+</div>
+<mat-progress-spinner class="progress-spinner" mode="indeterminate" *ngIf="showSpinner"></mat-progress-spinner>

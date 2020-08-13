@@ -16,6 +16,7 @@ import {MaterialModule} from './material.module';
 
 import { DialogBodyComponent } from './components/dialog-body/dialog-body.component';
 import { AlertDialogBodyComponent } from './components/alert-dialog-body/alert-dialog-body.component';
+import {TagComponent} from './components/tag/tag.component';
 
 
 library.add(
@@ -31,17 +32,19 @@ library.add(
 @NgModule({
   declarations: [
     DialogBodyComponent,
-    AlertDialogBodyComponent
+    AlertDialogBodyComponent,
+    TagComponent
   ],
   imports: [
     MaterialModule,
     CommonModule
   ],
-  exports: [
-    MaterialModule,
-    FontAwesomeModule,
-    ReactiveFormsModule,
-    FormsModule,
-  ]
+    exports: [
+        MaterialModule,
+        FontAwesomeModule,
+        ReactiveFormsModule,
+        FormsModule,
+        TagComponent,
+    ]
 })
 export class SharedModule { }

@@ -3,25 +3,19 @@ package gita.gasistent.blog.backend.service;
 import gita.gasistent.blog.backend.dto.BlogDto;
 import gita.gasistent.blog.backend.mapper.BlogMapper;
 import gita.gasistent.blog.backend.model.BlogEntity;
-import gita.gasistent.blog.backend.model.UserEntity;
 import gita.gasistent.blog.backend.repository.BlogRepository;
-import gita.gasistent.blog.backend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Set;
-
 @Service
 @Transactional
 public class BlogServiceImpl implements BlogService{
 
     @Autowired
     private BlogRepository blogRepo;
-
-    @Autowired
-    private UserRepository authorRepo;
 
     @Autowired
     private BlogMapper blogMapper;
@@ -39,8 +33,7 @@ public class BlogServiceImpl implements BlogService{
 
     @Override
     public BlogDto updateBlogWithPut(String id, BlogDto blog) {
-        final BlogEntity blogEntityForUpdate = blogRepo.findById(id).get();
-        final BlogEntity updatedBlog = blogRepo.save(blogEntityForUpdate);
+        final BlogEntity updatedBlog = blogRepo.save(blogMapper.toBlogEntity(blog));
         return blogMapper.toBlogDto(updatedBlog);
     }
 
@@ -51,8 +44,7 @@ public class BlogServiceImpl implements BlogService{
 
     @Override
     public Set<BlogDto> findUserBlogs(String username) {
-        UserEntity author = authorRepo.findByUsername(username).get();
-        Set<BlogEntity> userBlogs = blogRepo.findByAuthor(author);
+        Set<BlogEntity> userBlogs = blogRepo.findByAuthorUsername(username);
         return blogMapper.toBlogDtos(userBlogs);
     }
 

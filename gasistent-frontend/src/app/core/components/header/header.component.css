@@ -1,16 +1,18 @@
 @import 'https://fonts.googleapis.com/css?family=Montserrat|Open+Sans';
 
+mat-toolbar{
+  height: 10%;
+}
 a {
   font-family: 'Open Sans', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  font-size: 1.2rem;
-  color: #d89cf6;
+  letter-spacing: 2px;
+  font-size: 1.8rem;
+  color: #f0e3ff;
   text-decoration: none;
 }
 
 a:hover, a:active{
-  color: #f0e3ff;
+  color: #d89cf6;
 }
 
 .navigation-items{
@@ -19,17 +21,14 @@ a:hover, a:active{
   margin: 0;
 }
 
-mat-toolbar{
-  border-radius: 3px;
-}
-
 @media(max-width: 959px){
   mat-toolbar{
-    border-radius: 0px;
   }
 }
 
 .brand{
   font-family: 'Montserrat', sans-serif;
-  text-transform: uppercase
+  text-transform: uppercase;
+  font-size: 2.3rem;
+
 }

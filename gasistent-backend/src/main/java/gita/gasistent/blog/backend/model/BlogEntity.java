@@ -1,5 +1,7 @@
 package gita.gasistent.blog.backend.model;
 
+import gita.gasistent.blog.backend.dto.AuthorDto;
+import gita.gasistent.blog.backend.dto.TagDto;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -23,11 +25,11 @@ public class BlogEntity {
 
     private String imageUrl;
 
-    private Set<TagEntity> tags = new HashSet<>();
+    private Set<TagDto> tags = new HashSet<>();
 
     private String createdAt;
 
-    private UserEntity author;
+    private AuthorDto author;
 
     public BlogEntity(){}
 
@@ -72,11 +74,11 @@ public class BlogEntity {
         this.imageUrl = imageUrl;
     }
 
-    public Set<TagEntity> getTags() {
+    public Set<TagDto> getTags() {
         return tags;
     }
 
-    public void setTags(Set<TagEntity> tags) {
+    public void setTags(Set<TagDto> tags) {
         this.tags = tags;
     }
 
@@ -88,11 +90,11 @@ public class BlogEntity {
         this.createdAt = createdAt;
     }
 
-    public UserEntity getAuthor() {
+    public AuthorDto getAuthor() {
         return author;
     }
 
-    public void setAuthor(UserEntity author) {
+    public void setAuthor(AuthorDto author) {
         this.author = author;
     }
 
@@ -102,9 +104,9 @@ public class BlogEntity {
         public String title;
         public String content;
         public String imageUrl;
-        public Set<TagEntity> tags = new HashSet<>();
+        public Set<TagDto> tags = new HashSet<>();
         public String createdAt;
-        public UserEntity author;
+        public AuthorDto author;
 
         public static Builder builder(){ return new Builder(); }
 
@@ -128,7 +130,7 @@ public class BlogEntity {
             return this;
         }
 
-        public Builder withTags(final Set<TagEntity> tags){
+        public Builder withTags(final Set<TagDto> tags){
             this.tags = tags;
             return this;
         }
@@ -143,7 +145,7 @@ public class BlogEntity {
             return this;
         }
 
-        public Builder withAuthor(final UserEntity author){
+        public Builder withAuthor(final AuthorDto author){
             this.author = author;
             return this;
         }

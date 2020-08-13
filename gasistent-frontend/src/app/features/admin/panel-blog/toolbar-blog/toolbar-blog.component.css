@@ -1,0 +1,45 @@
+.panel-toolbar{
+  grid-area: navigation;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  background-color: #673ab7;
+  height: 100%;
+}
+.nav-container-heading{
+  font-size: 2em;
+  color: #f0e3ff;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  align-self: center;
+}
+
+.nav-container-links{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+hr{
+  width: 90%;
+  opacity: 0.8;
+}
+
+.nav-container-links button{
+  margin-top:20px;
+  padding:6px 15px;
+  font-size:1.3em;
+  background-color: #916dd5;
+  color: #f0e3ff;
+  font-weight: lighter;
+  text-align: start;
+}
+
+.nav-container-links button mat-icon{
+  margin-right:10px;
+}
+
+#signout-button{
+  background-color: tomato;
+  color: white;
+}

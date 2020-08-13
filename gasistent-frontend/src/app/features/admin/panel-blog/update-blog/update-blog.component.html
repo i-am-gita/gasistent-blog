@@ -1,0 +1,39 @@
+<div class="update-blog-container">
+  <div class="update-blog-main-form">
+    <div class="update-blog-input-title">
+      <mat-form-field>
+        <input matInput type="text" [(ngModel)]="blogProps.title" placeholder="Naslov">
+      </mat-form-field>
+    </div>
+    <div class="update-blog-input-content">
+      <ckeditor [editor]="Editor" [(ngModel)]="blogProps.content" [data]="blogProps.content"></ckeditor>
+    </div>
+  </div>
+  <div class="update-blog-additional-form">
+    <div class="update-blog-additional-feature-image">
+      <h3>Fotka</h3>
+      <input #imageInput
+             type="file"
+             accept="image/*"
+             hidden
+             (change)="processFile(imageInput)">
+      <img class="feature-image" [src]="blogProps.imageUrl" alt="Naslovna-slika">
+      <button mat-raised-button color="primary" (click)="imageInput.click()" >
+        Menjaj
+      </button>
+    </div>
+    <div class="update-blog-additional-tags">
+      <h3>Tagovi</h3>
+      <mat-chip-list class="chip-list">
+        <mat-chip *ngFor="let tag of blogProps.tags">{{tag.name}}</mat-chip>
+      </mat-chip-list>
+      <app-tag (whenTagAdded)="addTag($event)"></app-tag>
+    </div>
+    <div class="update-blog-additional-actions">
+      <button mat-raised-button id="update-action" (click)="open_dialog('Gotovo?')">Sačuvaj izmene</button>
+    </div>
+  </div>
+</div>
+
+<mat-spinner *ngIf="showSpinner" class="progress-spinner" diameter="50"></mat-spinner>
+

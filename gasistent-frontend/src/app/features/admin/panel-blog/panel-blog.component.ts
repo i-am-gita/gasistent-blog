@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {AuthService} from '../../../core/services/auth.service';
 import {DialogBodyComponent} from '../../../shared/components/dialog-body/dialog-body.component';
@@ -9,29 +9,25 @@ import {DialogBodyComponent} from '../../../shared/components/dialog-body/dialog
   styleUrls: ['./panel-blog.component.css']
 })
 export class PanelBlogComponent implements OnInit {
+  opened = true;
+  buttonPossition = '0';
+  buttonMarginTop = '355px';
+  iconRotate;
 
-  constructor(private dialog: MatDialog, private authService: AuthService) { }
+  constructor() { }
 
   ngOnInit() {
   }
 
-  open_dialog(message: string){
-    const dialogRef = this.dialog.open( DialogBodyComponent, {
-      data: {
-        message
-      },
-      width: '550px',
-      height: '200px'
-    });
-    dialogRef.afterClosed().subscribe((confirm: boolean) => {
-      if (confirm){
-        this.sign_out();
-      }
-    });
-  }
+  public onToggleToolbar = () => {
+    this.opened = !this.opened;
 
-  sign_out(){
-    this.authService.logout();
+    if (this.opened){
+      this.buttonPossition = '270px';
+      this.iconRotate = 'rotate(180deg)';
+    } else{
+      this.buttonPossition = '0';
+      this.iconRotate = 'rotate(0deg)';
+    }
   }
-
 }
