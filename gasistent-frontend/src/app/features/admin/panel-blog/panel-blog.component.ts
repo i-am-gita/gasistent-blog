@@ -10,9 +10,9 @@ import {DialogBodyComponent} from '../../../shared/components/dialog-body/dialog
 })
 export class PanelBlogComponent implements OnInit {
   opened = true;
-  buttonPossition = '0';
+  buttonPossition = '270px';
   buttonMarginTop = '355px';
-  iconRotate;
+  iconRotate = 'rotate(180deg)';
 
   constructor() { }
 

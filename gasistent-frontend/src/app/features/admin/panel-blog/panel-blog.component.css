@@ -1,6 +1,6 @@
 .wrapper{
-  width:70%;
-  height:60%;
+  width:100%;
+  height:100%;
   display: grid;
   grid-template-areas:"navigation main-content";
   grid-template-columns: 0.25fr 1fr;
@@ -20,8 +20,8 @@
 }
 mat-sidenav{
   position: absolute;
-  top: 180px;
+  top: 100px;
   width: 270px;
-  height: 60%;
+  height: 100%;
   min-height: 60%;
 }

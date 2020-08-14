@@ -16,6 +16,7 @@ const routes: Routes = [
   // {path:'kontakt', component:ContactComponent},
   // {path:'bio', component:BioComponent},
   // {path: 'blog/:id', component:BlogDetailsComponent},
+  {path: 'prijava', component: LoginComponent},
   {path: 'admin', component: PanelBlogComponent,
     canActivate: [AuthGuardService],
     children: [
@@ -24,14 +25,11 @@ const routes: Routes = [
        {path: 'izmeni-blog/:id', component: UpdateBlogComponent}
     ]
   },
-  {path: 'prijava', component: LoginComponent}
 ];
 
 @NgModule({
-  // useHash supports github.io demo page, remove in your app
   imports: [
     RouterModule.forRoot(routes, {
-      // useHash: true,
       scrollPositionRestoration: 'enabled',
       preloadingStrategy: PreloadAllModules
     })

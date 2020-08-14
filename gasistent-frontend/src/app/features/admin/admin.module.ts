@@ -15,26 +15,28 @@ import { AdminBlogsComponent } from './panel-blog/admin-blogs/admin-blogs.compon
 import { UpdateBlogComponent } from './panel-blog/update-blog/update-blog.component';
 import {SharedModule} from '../../shared/shared.module';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {FlexModule} from '@angular/flex-layout';
 
 
 @NgModule({
   declarations: [
-    ToolbarBlogComponent,
     LoginComponent,
     PanelBlogComponent,
+    ToolbarBlogComponent,
     AddBlogComponent,
     AdminBlogsComponent,
     UpdateBlogComponent
   ],
-  imports: [
-    MaterialModule,
-    CommonModule,
-    RouterModule,
-    FormsModule,
-    CKEditorModule,
-    SharedModule,
-    MatProgressSpinnerModule
-  ],
+    imports: [
+        MaterialModule,
+        CommonModule,
+        RouterModule,
+        FormsModule,
+        CKEditorModule,
+        SharedModule,
+        MatProgressSpinnerModule,
+        FlexModule
+    ],
   providers: [
     {provide: LOCALE_ID, useValue: 'sr-Latn'}
   ],
