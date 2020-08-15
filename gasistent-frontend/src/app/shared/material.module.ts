@@ -27,6 +27,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+
 
 @NgModule({
   exports:  [
@@ -57,6 +59,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatTreeModule,
     MatToolbarModule,
     MatTooltipModule,
+    MatProgressBarModule
   ]
 })
 export class MaterialModule { }

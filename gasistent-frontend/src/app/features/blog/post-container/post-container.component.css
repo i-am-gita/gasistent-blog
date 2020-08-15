@@ -1,0 +1,12 @@
+/*.post-list {*/
+/*  padding: 3px;*/
+/*}*/
+.post-list{
+/* Define the element as a grid container */
+  display: grid;
+/* Auto-fit as many items on a row as possible without going under 180px */
+/*  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));*/
+  grid-template-columns: repeat(3, 1fr);
+/* A little spacing between articles */
+  grid-gap: 1em;
+}

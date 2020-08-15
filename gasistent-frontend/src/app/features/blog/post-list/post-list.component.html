@@ -1,0 +1,29 @@
+<section class="post-container">
+<div layout-fill layout="column" layout-align="center" class="mat-card">
+    <div class="mat-card-title-group">
+      <div class="mat-card-title">
+        <a class="no-decoration"  [routerLink]="['/blog/',post.id]">{{post.title}}</a>
+      </div>
+      <div class="mat-card-subtitle">{{post.createdAt}}</div>
+    </div>
+    <img [src]="post.imageUrl">
+    <div class="mat-card-content">
+      {{post.content.slice(0,100)}}
+    </div>
+
+    <div layout="row"
+         class="mat-card-actions"
+         layout-align="start end" flex>
+      <mat-chip-list>
+        <mat-chip class="tag-chip" *ngFor="let tag of post.tags">
+          {{tag.name}}
+        </mat-chip>
+      </mat-chip-list>
+      <span flex></span>
+      <button mat-button [routerLink]="'/blog/'+ post.id ">
+        <span>Nastavi čitanje</span>
+      </button>
+    </div>
+  </div>
+</section>
+

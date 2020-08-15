@@ -10,7 +10,8 @@ import { SharedModule } from './shared/shared.module';
 import { MaterialModule } from './shared/material.module';
 
 import { AppRoutingModule } from './app-routing.module';
-import {AdminModule} from './features/admin/admin.module';
+import { AdminModule } from './features/admin/admin.module';
+import { BlogModule } from './features/blog/blog.module';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import {AdminModule} from './features/admin/admin.module';
     BrowserAnimationsModule,
     MaterialModule,
     AdminModule,
+    BlogModule,
 
     AppRoutingModule,
   ],

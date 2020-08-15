@@ -1,0 +1,14 @@
+.wrapper{
+  display: grid;
+  grid-template-columns:  repeat(3, 1fr);
+}
+
+.left-screen-space{
+  width: 20%;
+  height: 100%;
+}
+
+.right-screen-space{
+  width: 20%;
+  height: 100%;
+}

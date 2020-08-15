@@ -1,0 +1,7 @@
+<mat-progress-bar mode="query" *ngIf="loading"></mat-progress-bar>
+<section class="post-list"
+         layout-xs="column"
+         layout-gt-xs="row"
+         layout-wrap>
+  <app-post-list *ngFor="let post of postList"  [data]="post"></app-post-list>
+</section>
