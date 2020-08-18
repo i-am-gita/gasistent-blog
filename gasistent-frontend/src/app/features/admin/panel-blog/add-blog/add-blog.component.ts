@@ -1,12 +1,13 @@
 import {Component, LOCALE_ID, OnInit, ViewChild} from '@angular/core';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { ImgurUploaderInit } from 'ckeditor5-imgur-uploader';
 import { AlertDialogBodyComponent } from '../../../../shared/components/alert-dialog-body/alert-dialog-body.component';
 import { BlogService } from '../../../../core/services/blog.service';
 import { ImageService } from '../../../../core/services/image.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogBodyComponent } from '../../../../shared/components/dialog-body/dialog-body.component';
-import {DatePipe} from '@angular/common';
 import {TokenStorageService} from '../../../../core/services/token-storage.service';
+
 
 interface Blog{
   id: string;
@@ -42,6 +43,7 @@ interface ImgurImage{
   styleUrls: ['./add-blog.component.css']
 })
 export class AddBlogComponent implements OnInit {
+  // ImgurUploader = ImgurUploaderInit({clientID: 'a8e32ead557441e'});
   public Editor = ClassicEditor;
   public model = {
     editorData: ''
@@ -106,23 +108,19 @@ export class AddBlogComponent implements OnInit {
   async submit_blog(){
     this.showSpinner = true;
     this.imageData = await this.imageService.upload_image(this.selectedFile).toPromise() as ImgurImage;
-
-    const pipe = new DatePipe('sr-Latn');
-    const now = Date.now();
-    const myFormattedDate = pipe.transform(now, 'shortDate');
+    const now = new Date();
 
     const blog = {
       title: this.title,
       content: this.model.editorData,
       imageUrl: this.imageData.data.link,
       tags: [],
-      createdAt: myFormattedDate,
+      createdAt: now,
       author: this.tokenStorageService.getUser()
     };
     this.tags.forEach((element: any) => {
       blog.tags.push(element);
     });
-
     this.blogService.add_blog(blog).subscribe((response: any) => {
       this.blogId = response.id;
       this.showSpinner = false;
@@ -137,5 +135,25 @@ export class AddBlogComponent implements OnInit {
   addTag(tag: Tag): void{
     this.tags.push(tag);
   }
-}
 
+  CkeditorWrapper() {
+    const ImgurUploader = ImgurUploaderInit({clientID: 'a8e32ead557441e'});
+
+    return `{{
+      extraPlugins: [${ImgurUploader}]
+    }}`;
+  }
+
+  // insertImage( editor, imageUrl, imageAlt ) {
+  //   const doc = editor.document;
+  //
+  //   doc.enqueueChanges( () => {
+  //     const imageElement = new ModelElement( 'image', {
+  //       src: imageUrl,
+  //       alt: imageAlt
+  //     } );
+  //
+  //     editor.data.insertContent( imageElement, doc.selection );
+  //   } );
+  // }
+}

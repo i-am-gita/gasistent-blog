@@ -38,5 +38,52 @@ export class BlogService {
     return this.http.get(this.getAdminBlogs + username);
   }
 
+  timePassedSinceCreation(createdDate: Date){
+    const now = new Date();
+    const elapsed = now.getTime() - createdDate.getTime();
+    let seconds = elapsed / 1000;
+    let minutes = seconds / 60;
+    let hours = minutes / 60;
+    let days = hours / 24;
+    let months = days / 30;
+    let years = months / 12;
+
+    seconds = Math.round(seconds);
+    minutes = Math.round(minutes);
+    hours = Math.round(hours);
+    days = Math.round(days);
+    months = Math.round(months);
+    years = Math.round(years);
+    let ago;
+
+    if (years === 0){
+      if (months === 0){
+        if (days === 0){
+          if (hours === 0){
+            if (minutes === 0){
+              ago = (seconds === 1) ? ' second ago' : ' seconds ago';
+              return seconds + ago;
+            }else {
+              ago = (minutes === 1) ? ' minute ago' : ' minutes ago';
+              return minutes + ago;
+            }
+          }else {
+            ago = (hours === 1) ? ' hour ago' : ' hours ago';
+            return hours + ago;
+          }
+        }else {
+          ago = (days === 1) ? ' day ago' : ' days ago';
+          return days + ago;
+        }
+      } else{
+        ago = (months === 1) ? ' month ago' : ' months ago';
+        return months + ago;
+      }
+    }else {
+      ago = (years === 1) ? ' year ago' : ' years ago';
+      return years + ago;
+    }
+  }
+
 
 }

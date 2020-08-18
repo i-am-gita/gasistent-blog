@@ -1,7 +1,12 @@
 .post-detail {
-  max-width: 900px;
+  max-width: 1100px;
   width: 100%;
+  height: fit-content;
   min-height: 500px;
+}
+
+img{
+  max-width: 1100px;
 }
 
 .post-detail-header {
@@ -9,14 +14,17 @@
 }
 
 .post-detail-title {
-  font-size: 30px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 65px;
   padding-bottom: 5px;
+  text-align: center;
 }
 
 .post-detail-subtitle {
-  opacity: 0.5;
   font-size: 20px;
   padding-bottom: 5px;
+  color: grey;
+  text-align: center;
 }
 
 .post-meta {
@@ -26,7 +34,10 @@
 
 .post-detail-content {
   padding: 15px;
+  font-size: 1.5rem;
+  font-family: 'Roboto', sans-serif;
 }
+
 
 .post-detail-actions {
   padding: 15px;
@@ -34,4 +45,10 @@
 
 a{
   text-decoration: none;
+}
+.avatar{
+  position: relative;
+  top: 13px;
+  border: white none 1px;
+  border-radius: 50%;
 }

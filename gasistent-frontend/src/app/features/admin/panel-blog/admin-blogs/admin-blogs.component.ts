@@ -46,14 +46,19 @@ export class AdminBlogsComponent implements OnInit {
 
   load_admin_blogs(){
     this.blogService.get_admin_blogs(this.tokenStorageService.getUser().username).subscribe((response: any) => {
-      response.forEach((element: any) => {
-        const html = element.content;
-        const div = document.createElement('div');
-        div.innerHTML = html;
-        const text = div.textContent || div.innerText || '';
-        element.content = text;
-        this.blogs.push(element);
-      });
+
+      if (response !== null) {
+        response.forEach((element: any) => {
+          const html = element.content;
+          const div = document.createElement('div');
+          div.innerHTML = html;
+          const text = div.textContent || div.innerText || '';
+          element.content = text;
+          this.blogs.push(element);
+        });
+      }else{
+        console.log('Nisi objavio nijedan post!');
+      }
     });
   }
 

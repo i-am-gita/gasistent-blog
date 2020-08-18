@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {BlogService} from '../../../core/services/blog.service';
 
 interface Blog{
   id: string;
@@ -30,7 +31,7 @@ export class PostListComponent implements OnInit {
   @Input() data;
   post: Blog;
 
-  constructor() { }
+  constructor(private blogService: BlogService) { }
 
   ngOnInit(): void {
     this.loadPostData();
@@ -38,6 +39,8 @@ export class PostListComponent implements OnInit {
 
   loadPostData(){
     this.post = this.data;
+    console.log(this.post.author.profileImage);
+    this.post.createdAt = this.blogService.timePassedSinceCreation(new Date(this.post.createdAt));
   }
 
 }

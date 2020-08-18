@@ -1,36 +1,30 @@
 <section class="mat-tree-node"
          fxLayout="row"
          fxLayoutAlign="center center">
-  <div class="post-detail mat-card" *ngIf="post">
+  <div class="post-detail" *ngIf="post">
+    <img [src]="post.imageUrl">
     <div class="post-detail-header">
       <div class="post-detail-title" >
         {{post.title}}
       </div>
       <div class="post-detail-subtitle">
+        <img class="avatar" [src]="post.author.profileImage" title="Aleksandar Gitaric" alt="Avatar">
+        {{post.author.username}}
+        <span class="delimiter">&bull;</span>
         {{post.createdAt}}
       </div>
     </div>
-    <img [src]="post.imageUrl">
     <div class="post-detail-content">
       <div [innerHtml]="post.content" class="markdown-body">
       </div>
     </div>
 
     <div class="post-detail-actions">
-      <div class="post-meta">
-        Heštegovi:
-      </div>
       <mat-chip-list>
         <mat-chip *ngFor="let tag of post.tags">
           <a [routerLink]="'/tag/'+tag.id">{{tag.name}}</a>
         </mat-chip>
       </mat-chip-list>
     </div>
-    <mat-card-subtitle>
-      {{post.author.profileImage}}
-      <a [routerLink]="'/blog/'+post.author.username">{{post.author.username}}</a>
-      <span class="delimiter">&bull;</span>
-      {{post.author.skillTitle}}
-    </mat-card-subtitle>
   </div>
 </section>

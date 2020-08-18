@@ -28,6 +28,6 @@ export class AuthService {
 
   logout(){
     localStorage.removeItem('auth_token');
-    this.router.navigate(['/login']);
+    this.router.navigate(['/prijava']);
   }
 }

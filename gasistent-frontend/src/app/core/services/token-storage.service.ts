@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import {stringify} from 'querystring';
 
 const TOKEN_KEY = 'auth-token';
 const ADMIN_KEY = 'auth-admin';
