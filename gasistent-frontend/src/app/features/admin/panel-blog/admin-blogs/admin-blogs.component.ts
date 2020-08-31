@@ -4,6 +4,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {DialogBodyComponent} from '../../../../shared/components/dialog-body/dialog-body.component';
 import {AlertDialogBodyComponent} from '../../../../shared/components/alert-dialog-body/alert-dialog-body.component';
 import {TokenStorageService} from '../../../../core/services/token-storage.service';
+import {Router} from '@angular/router';
 
 
 interface Blog{
@@ -38,7 +39,10 @@ export class AdminBlogsComponent implements OnInit {
   public deletedBlogId: string;
   public  showSpinner = false;
 
-  constructor(private tokenStorageService: TokenStorageService, private blogService: BlogService, private dialog: MatDialog) { }
+  constructor(private tokenStorageService: TokenStorageService,
+              private blogService: BlogService,
+              private dialog: MatDialog,
+              private router: Router) { }
 
   ngOnInit() {
     this.load_admin_blogs();
@@ -94,6 +98,7 @@ export class AdminBlogsComponent implements OnInit {
       if (response){
         this.showSpinner = false;
         this.open_alert_dialog('Ode post!');
+        window.location.reload();
       }
     });
   }

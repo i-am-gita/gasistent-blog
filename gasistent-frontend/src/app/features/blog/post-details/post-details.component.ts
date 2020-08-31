@@ -34,7 +34,7 @@ interface Author{
   ],
   selector: 'app-post-details',
   templateUrl: './post-details.component.html',
-  styleUrls: ['./post-details.component.css']
+  styleUrls: ['./post-details.component.css', '../../../../assets/styles/link-styles.css']
 })
 export class PostDetailsComponent implements OnInit {
 

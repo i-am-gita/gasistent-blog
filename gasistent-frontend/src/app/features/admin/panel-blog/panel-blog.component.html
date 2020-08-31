@@ -1,10 +1,12 @@
 <div class ="wrapper">
-  <button #panelButton mat-icon-button [style.margin-left]="buttonPossition" [style.margin-top]="buttonMarginTop" (click)="onToggleToolbar()">
-    <mat-icon #panelButtonIcon [style.transform]="iconRotate" class="panel-icon">double_arrow</mat-icon>
-  </button>
-  <mat-sidenav [(opened)]="opened" role="navigation">
-    <app-toolbar-blog></app-toolbar-blog>
-  </mat-sidenav>
+  <div class="side-nav-wrapper">
+    <button #panelButton mat-icon-button [style.margin-left]="buttonPossition" [style.margin-top]="buttonMarginTop" (click)="onToggleToolbar()">
+      <mat-icon #panelButtonIcon [style.transform]="iconRotate" class="panel-icon">double_arrow</mat-icon>
+    </button>
+    <mat-sidenav [(opened)]="opened" role="navigation">
+      <app-toolbar-blog></app-toolbar-blog>
+    </mat-sidenav>
+  </div>
   <div class="main-container">
     <router-outlet></router-outlet>
   </div>

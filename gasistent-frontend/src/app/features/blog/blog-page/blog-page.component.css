@@ -1,14 +1,11 @@
 .wrapper{
   display: grid;
-  grid-template-columns:  repeat(3, 1fr);
+  grid-template-columns: 15% 70% 15%;
 }
 
-.left-screen-space{
-  width: 20%;
-  height: 100%;
-}
-
-.right-screen-space{
-  width: 20%;
-  height: 100%;
+.posts{
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  row-gap: 1em;
 }

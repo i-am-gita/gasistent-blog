@@ -1,5 +1,5 @@
-<div class="all-blogs-container" fxLayout="row wrap" fxLayoutGap="1em">
-  <div class="blog-container" *ngFor="let blog of blogs" fxFlex="0 0 calc(25% - 1em)">
+<div class="all-blogs-container">
+  <div class="blog-container" *ngFor="let blog of blogs">
     <div class="blog-container-image">
       <img [src]="blog.imageUrl" alt="Naslovna-fotografija">
     </div>
@@ -7,8 +7,8 @@
       <h3>{{blog.title}}</h3>
     </div>
     <div class="blog-container-actions">
-      <button mat-raised-button id="edit-action" [routerLink]="['/admin/izmeni-blog/', blog.id]" >Promeni</button>
-      <button mat-raised-button id="delete-action" (click)="open_dialog('Ćeš sigurno da brišeš?', blog.id)">Briši</button>
+      <button mat-raised-button color="primary" id="edit-action" [routerLink]="['/admin/izmeni-blog/', blog.id]" >Promeni</button>
+      <button mat-raised-button id="delete-action" (click)="open_dialog('Sigurno brišeš ovo?', blog.id)">Briši</button>
     </div>
   </div>
 </div>

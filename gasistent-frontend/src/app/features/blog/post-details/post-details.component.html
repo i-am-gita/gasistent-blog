@@ -1,8 +1,9 @@
-<section class="mat-tree-node"
-         fxLayout="row"
-         fxLayoutAlign="center center">
-  <div class="post-detail" *ngIf="post">
-    <img [src]="post.imageUrl">
+<section class = "post-wrapper" *ngIf="post">
+
+    <div class="post-cover-image">
+      <img [src]="post.imageUrl">
+    </div>
+
     <div class="post-detail-header">
       <div class="post-detail-title" >
         {{post.title}}
@@ -14,17 +15,10 @@
         {{post.createdAt}}
       </div>
     </div>
+
     <div class="post-detail-content">
       <div [innerHtml]="post.content" class="markdown-body">
       </div>
     </div>
 
-    <div class="post-detail-actions">
-      <mat-chip-list>
-        <mat-chip *ngFor="let tag of post.tags">
-          <a [routerLink]="'/tag/'+tag.id">{{tag.name}}</a>
-        </mat-chip>
-      </mat-chip-list>
-    </div>
-  </div>
 </section>

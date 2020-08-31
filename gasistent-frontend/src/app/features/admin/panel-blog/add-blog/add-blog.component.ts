@@ -1,6 +1,5 @@
-import {Component, LOCALE_ID, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import { ImgurUploaderInit } from 'ckeditor5-imgur-uploader';
 import { AlertDialogBodyComponent } from '../../../../shared/components/alert-dialog-body/alert-dialog-body.component';
 import { BlogService } from '../../../../core/services/blog.service';
 import { ImageService } from '../../../../core/services/image.service';
@@ -40,10 +39,9 @@ interface ImgurImage{
 @Component({
   selector: 'app-add-blog',
   templateUrl: './add-blog.component.html',
-  styleUrls: ['./add-blog.component.css']
+  styleUrls: ['./add-blog.component.css', '../../../../../assets/styles/link-styles.css']
 })
 export class AddBlogComponent implements OnInit {
-  // ImgurUploader = ImgurUploaderInit({clientID: 'a8e32ead557441e'});
   public Editor = ClassicEditor;
   public model = {
     editorData: ''
@@ -135,25 +133,4 @@ export class AddBlogComponent implements OnInit {
   addTag(tag: Tag): void{
     this.tags.push(tag);
   }
-
-  CkeditorWrapper() {
-    const ImgurUploader = ImgurUploaderInit({clientID: 'a8e32ead557441e'});
-
-    return `{{
-      extraPlugins: [${ImgurUploader}]
-    }}`;
-  }
-
-  // insertImage( editor, imageUrl, imageAlt ) {
-  //   const doc = editor.document;
-  //
-  //   doc.enqueueChanges( () => {
-  //     const imageElement = new ModelElement( 'image', {
-  //       src: imageUrl,
-  //       alt: imageAlt
-  //     } );
-  //
-  //     editor.data.insertContent( imageElement, doc.selection );
-  //   } );
-  // }
 }

@@ -26,7 +26,6 @@ import { BlogModule } from './features/blog/blog.module';
     MaterialModule,
     AdminModule,
     BlogModule,
-
     AppRoutingModule,
   ],
   providers: [],

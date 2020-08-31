@@ -1,4 +1,5 @@
 <div class="add-blog-container">
+
     <div class="add-blog-main-form">
       <div class="add-blog-input-title">
         <mat-form-field>
@@ -8,30 +9,32 @@
         </mat-form-field>
       </div>
       <div class="add-blog-input-content">
-        <ckeditor [editor]="Editor" [(ngModel)]="model.editorData" [data]=""></ckeditor>
+        <ckeditor class="ckeditor-link-override" [editor]="Editor" [(ngModel)]="model.editorData" [data]=""></ckeditor>
       </div>
     </div>
+
     <div class="add-blog-additional-form">
       <div class="add-blog-additional-feature-image">
-        <h3>Naslovna slika</h3>
-        <button mat-raised-button color="primary" (click)="imageInput.click()" >
-          {{previewImage ? 'Promeni': 'Izaberi'}}
-        </button>
+        <div *ngIf="!previewImage" class="feature-image-placeholder">
+          <img src="assets/images/placeholder.png">
+        </div>
         <input #imageInput
                type="file"
                accept="image/*"
                hidden
                (change)="processFile(imageInput)">
         <img class="preview-image" [src]="previewImage" *ngIf="previewImage" alt="Naslovna-slika">
+        <button mat-raised-button color="primary" (click)="imageInput.click()" >
+          {{previewImage ? 'Promeni naslovnu fotku': 'Izaberi naslovnu fotku'}}
+        </button>
       </div>
       <div class="add-blog-additional-tags">
-        <h3>Heštegovi</h3>
+        <span class="hashtags">#Heštegovi</span>
         <app-tag (whenTagAdded)="addTag($event)"></app-tag>
       </div>
-      <div class="add-blog-additional-actions">
-        <button mat-raised-button id="create-action" (click)="open_dialog('Oćeš sigurno ovo da objaviš?')">Objavi</button>
-      </div>
+      <button mat-raised-button id="create-action" (click)="open_dialog('Oćeš sigurno ovo da objaviš?')">Objavi</button>
     </div>
+
 </div>
 
 <mat-spinner *ngIf="showSpinner" class="progress-spinner" diameter="50" ></mat-spinner>

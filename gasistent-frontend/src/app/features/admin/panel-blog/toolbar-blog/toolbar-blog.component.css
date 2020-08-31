@@ -1,22 +1,21 @@
 .panel-toolbar{
   grid-area: navigation;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  background-color: #673ab7;
   height: 100%;
+  background-color: #673ab7;
 }
-.nav-container-heading{
+.nv-container-heading{
   font-size: 2em;
   color: #f0e3ff;
-  margin-top: 30px;
-  margin-bottom: 15px;
+  padding-top: 20px;
+  text-align: center;
+  padding-bottom: 15px;
   align-self: center;
 }
 
-.nav-container-links{
-  display: flex;
-  flex-direction: column;
+.nv-container-links{
+  padding-top: 10px;
+  display: grid;
+  grid-template-rows: repeat(3, 90px);
   width: 100%;
 }
 
@@ -25,21 +24,29 @@ hr{
   opacity: 0.8;
 }
 
-.nav-container-links button{
-  margin-top:30px;
-  padding:6px 15px;
-  font-size:1.3em;
+.nv-container-links button{
+  margin-bottom: 10px;
+  font-size:1em;
   background-color: #916dd5;
   color: #f0e3ff;
+  cursor: pointer;
   font-weight: lighter;
   text-align: start;
 }
+.nv-container-links button:hover{
+  background-color: #d89cf6;
+}
 
-.nav-container-links button mat-icon{
+.nv-container-links button mat-icon{
   margin-right:10px;
 }
 
 #signout-button{
-  background-color: tomato;
+  background-color: crimson;
+  color: white;
+}
+
+#signout-button:hover{
+  background-color: #ed6663;
   color: white;
 }

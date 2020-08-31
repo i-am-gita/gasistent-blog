@@ -1,0 +1,27 @@
+:host ::ng-deep a{
+  font-family: 'Roboto Condensed', sans-serif;
+  text-decoration: none;
+  color: royalblue;
+}
+
+:host ::ng-deep a:after{
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 100%;
+  top: 0;
+  right: 0;
+  padding-bottom: 5px;
+  border-bottom: 1.5px solid #916dd5;
+  transition: 0.3s width ease;
+}
+
+:host ::ng-deep a:hover:after{
+  transition: 0.3s width ease;
+}
+
+:host ::ng-deep a:hover{
+  color: #916dd5;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}

@@ -1,7 +1,4 @@
 import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
-import {MatDialog} from '@angular/material/dialog';
-import {AuthService} from '../../../core/services/auth.service';
-import {DialogBodyComponent} from '../../../shared/components/dialog-body/dialog-body.component';
 
 @Component({
   selector: 'app-panel-blog',
@@ -10,7 +7,7 @@ import {DialogBodyComponent} from '../../../shared/components/dialog-body/dialog
 })
 export class PanelBlogComponent implements OnInit {
   opened = true;
-  buttonPossition = '270px';
+  buttonPossition = '235px';
   buttonMarginTop = '355px';
   iconRotate = 'rotate(180deg)';
 
@@ -23,7 +20,7 @@ export class PanelBlogComponent implements OnInit {
     this.opened = !this.opened;
 
     if (this.opened){
-      this.buttonPossition = '270px';
+      this.buttonPossition = '235px';
       this.iconRotate = 'rotate(180deg)';
     } else{
       this.buttonPossition = '0';

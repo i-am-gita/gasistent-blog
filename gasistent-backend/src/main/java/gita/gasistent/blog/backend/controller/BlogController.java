@@ -106,10 +106,11 @@ public class BlogController {
 
     @DeleteMapping("/blog/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public ResponseEntity<HttpStatus> deleteBlog(@PathVariable("id") String id){
+    public ResponseEntity<BlogDto> deleteBlog(@PathVariable("id") String id){
         try{
+            BlogDto blog = blogService.getBlogById(id);
             blogService.deleteBlogById(id);
-            return new ResponseEntity<>(HttpStatus.GONE);
+            return new ResponseEntity<>(blog, HttpStatus.OK);
         }catch(Exception e){
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }

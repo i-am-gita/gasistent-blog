@@ -1,5 +1,8 @@
+<mat-progress-bar mode="query" *ngIf="loading"></mat-progress-bar>
 <div class="wrapper">
-  <div class="left-screen-space"></div>
-  <app-post-container></app-post-container>
-  <div class="right-screen-space"></div>
+  <div class="left-bar"></div>
+  <div class="posts">
+    <app-post-item *ngFor="let post of postList"  [data]="post"></app-post-item>
+  </div>
+  <div class="right-bar"></div>
 </div>

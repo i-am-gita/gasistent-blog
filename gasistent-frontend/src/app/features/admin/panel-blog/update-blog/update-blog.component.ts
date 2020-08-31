@@ -38,7 +38,7 @@ interface ImgurImage{
 @Component({
   selector: 'app-update-blog',
   templateUrl: './update-blog.component.html',
-  styleUrls: ['./update-blog.component.css']
+  styleUrls: ['./update-blog.component.css', '../../../../../assets/styles/link-styles.css']
 })
 export class UpdateBlogComponent implements OnInit {
   public Editor = ClassicEditor;
@@ -143,7 +143,7 @@ export class UpdateBlogComponent implements OnInit {
     this.blogService.update_blog(blog, this.blogId).subscribe((response: any) => {
       this.blogId = response.blogId;
       this.showSpinner = false;
-      this.open_alert_dialog(`Blog sa ID-em: ${this.blogId} je ažužuriran!`);
+      this.open_alert_dialog(`Blog je ažužuriran!`);
     });
   }
 
