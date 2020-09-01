@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DialogBodyComponent} from '../../../../shared/components/dialog-body/dialog-body.component';
 import {MatDialog} from '@angular/material/dialog';
 import {AuthService} from '../../../../core/services/auth.service';

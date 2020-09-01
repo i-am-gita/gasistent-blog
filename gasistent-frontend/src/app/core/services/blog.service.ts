@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {CacheRegistrationService} from './cache.registration.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,9 @@ export class BlogService {
   private updateBlogUrl = 'http://localhost:8080/api/blog/';
   private getAdminBlogs = 'http://localhost:8080/api/blogs/';
 
-  constructor(private http: HttpClient) { }
+  constructor(private cacheRegistrationService: CacheRegistrationService, private http: HttpClient) {
+    cacheRegistrationService.addToCache(this.getSingleBlogUrl);
+  }
 
   add_blog(blogProps: object){
     return this.http.post(this.addBlogUrl, blogProps);
@@ -26,8 +29,12 @@ export class BlogService {
     return this.http.delete(this.deleteBlogUrl + id);
   }
 
-  get_single_blog(blogId: string){
-    return this.http.get(this.getSingleBlogUrl + blogId);
+  get_single_blog(blogId: string, reset: boolean){
+    let headers = new HttpHeaders();
+    if (reset){
+      headers = headers.set('reset-cache', 'true');
+    }
+    return this.http.get(this.getSingleBlogUrl + blogId,{headers});
   }
 
   update_blog(blogProps: object, blogId: string){

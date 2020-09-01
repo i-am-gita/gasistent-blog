@@ -20,9 +20,7 @@ export class AuthService {
     if (!token) {
       return false;
     }
-
     const isExpired = this.jwtHelper.isTokenExpired(token);
-
     return !isExpired;
   }
 

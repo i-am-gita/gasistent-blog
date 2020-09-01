@@ -49,7 +49,7 @@ export class PostDetailsComponent implements OnInit {
   }
 
   loadPostDetails() {
-      this.blogService.get_single_blog(this.route.snapshot.params.id).subscribe((response: any) => {
+      this.blogService.get_single_blog(this.route.snapshot.params.id, true).subscribe((response: any) => {
           response.createdAt = this.blogService.timePassedSinceCreation(new Date(response.createdAt));
           this.post = response;
       });

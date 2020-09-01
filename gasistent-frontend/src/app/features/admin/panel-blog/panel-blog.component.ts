@@ -1,4 +1,4 @@
-import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-panel-blog',
@@ -18,7 +18,6 @@ export class PanelBlogComponent implements OnInit {
 
   public onToggleToolbar = () => {
     this.opened = !this.opened;
-
     if (this.opened){
       this.buttonPossition = '235px';
       this.iconRotate = 'rotate(180deg)';

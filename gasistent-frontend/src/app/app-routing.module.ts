@@ -8,10 +8,11 @@ import {AddBlogComponent} from './features/admin/panel-blog/add-blog/add-blog.co
 import {UpdateBlogComponent} from './features/admin/panel-blog/update-blog/update-blog.component';
 import {PostDetailsComponent} from './features/blog/post-details/post-details.component';
 import {BlogPageComponent} from './features/blog/blog-page/blog-page.component';
+import {HomeComponentComponent} from './features/home/home-component/home-component.component';
 
 
 const routes: Routes = [
-  // {path: '', component:HomepageComponent},
+   {path: '', component: HomeComponentComponent},
    {path: 'blog', component: BlogPageComponent},
   // {path:'podkast', component:PodcastComponent},
   // {path:'okce', component:OkceComponent},

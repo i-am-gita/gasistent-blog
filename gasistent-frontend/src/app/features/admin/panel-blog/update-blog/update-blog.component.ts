@@ -74,7 +74,7 @@ export class UpdateBlogComponent implements OnInit {
   }
 
   get_blog_info(){
-    this.blogService.get_single_blog(this.blogId).subscribe((response: any) => {
+    this.blogService.get_single_blog(this.blogId, true).subscribe((response: any) => {
       console.log(response);
       this.blogProps.id = response.id;
       this.blogProps.title = response.title;

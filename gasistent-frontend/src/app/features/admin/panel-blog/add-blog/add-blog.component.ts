@@ -8,24 +8,8 @@ import { DialogBodyComponent } from '../../../../shared/components/dialog-body/d
 import {TokenStorageService} from '../../../../core/services/token-storage.service';
 
 
-interface Blog{
-  id: string;
-  title: string;
-  content: string;
-  imageUrl: string;
-  tags: Tag[];
-  createdAt: string;
-  author: Author;
-}
-
 interface Tag{
   name: string;
-}
-
-interface Author{
-  username: string;
-  skillTitle: string;
-  profileImage: string;
 }
 
 interface ImgurImage{
@@ -95,7 +79,7 @@ export class AddBlogComponent implements OnInit {
   }
 
   open_alert_dialog(message: string){
-    const dialogRef = this.dialog.open(AlertDialogBodyComponent, {
+    this.dialog.open(AlertDialogBodyComponent, {
       width: '550px',
       height: '200px',
       data: {

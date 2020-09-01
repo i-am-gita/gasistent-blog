@@ -2,19 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HeaderComponent } from './components/header/header.component';
-
 import { RouterModule } from '@angular/router';
-
-
 import { MaterialModule } from '../shared/material.module';
-
 import { AuthModule } from './auth/auth.module';
 import { JwtModule } from '@auth0/angular-jwt';
-
 import { FooterComponent } from './components/footer/footer.component';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { LayoutComponent } from './components/layout/layout.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import {CacheRegistrationService} from './services/cache.registration.service';
+import {UriCachingInterceptor} from './http-interceptors/uri.caching.interceptor';
 
 
 @NgModule({
@@ -44,6 +41,12 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     })
   ],
   providers: [
+    CacheRegistrationService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: UriCachingInterceptor,
+      multi: true
+    }
   ],
   exports: [
     HeaderComponent,

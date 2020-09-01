@@ -7,6 +7,8 @@ a {
   font-family: 'Open Sans', sans-serif;
   letter-spacing: 2px;
   font-size: 1.8rem;
+  font-max-size: 1.9rem;
+  font-min-size: 1.5rem;
   color: #f0e3ff;
   text-decoration: none;
 }

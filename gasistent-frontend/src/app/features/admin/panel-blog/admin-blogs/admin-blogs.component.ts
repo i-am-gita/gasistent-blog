@@ -36,7 +36,6 @@ interface Author{
 export class AdminBlogsComponent implements OnInit {
 
   public blogs: Array<Blog> = [];
-  public deletedBlogId: string;
   public  showSpinner = false;
 
   constructor(private tokenStorageService: TokenStorageService,
@@ -83,7 +82,7 @@ export class AdminBlogsComponent implements OnInit {
   }
 
   open_alert_dialog(message: string){
-    const dialogRef = this.dialog.open(AlertDialogBodyComponent, {
+    this.dialog.open(AlertDialogBodyComponent, {
       width: '550px',
       height: '200px',
       data: {
